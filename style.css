@@ -1,69 +1,157 @@
-*,::after, ::before {
-    box-sizing  : border-box;
-    margin      : 0;
-    padding     : 0;
+:root {
+    --color1: orange;
+    --color2: purple;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
-    margin              : 0px;
-    padding             : 0px;
-    height              : 80vh;
-    background          : #333;
-    font-family         : "Poppins", sans-serif;
-    display             :flex ;
-    justify-content     :center ;
-    align-items         :center ;
-}
-
-.carte {
-    width           : 500px;
-    height          : 300px ;
-    border-radius   :5px ;
-    flex-shrink     :0 ;
-    position        : relative;
-    cursor          : pointer;
-    background      : rgb(62, 199, 245); 
-    box-shadow      : 0px 200px 100px -80px white inset;
-    transition      : background 1s ease, box-shadow 1s ease ;
-}
-
-.carte:hover {
-    background : #7e99f3; 
-    box-shadow: 0px 200px 100px -100px #ff72a1 inset;
-}
-
-h2{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(44, 44, 44);
     position: relative;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    padding: 0 25px;
+    overflow: hidden;
+    gap: 3rem;
+    flex-wrap: wrap;
 }
 
-
-h2::before {
-    content: "❝";
-    font-size: 70px;
-    position: absolute;
-    top: -45px;
-    left: 5px;
-    display: block;
+.box {
+    width: 80svh;
+    aspect-ratio: 1;
+    border: 12px solid white;
+    box-shadow: 0 0 2svh 0.5svh rgb(22, 22, 22) inset;
+    border-radius: 1rem;
 }
 
-h2::after {
-    content: "❞";
-    font-size: 70px;
-    position: absolute;
-    bottom: -55px;
-    right: 0px;
-    display: block;
+/* Rotating gradient */
+
+@property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
 }
 
-span {
-    position: absolute;
-    bottom  : 5px;
-    top     : 180px;
-    left    : 10px;
-    padding-top: 55px;
-    display: block;
+.rotate {
+    background: linear-gradient(var(--angle),
+            var(--color1) 10%,
+            var(--color2) 90%);
+    z-index: 100;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        --angle: 360deg;
+    }
+}
+
+/* Translate gradient */
+
+@property --position1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@property --position2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 100%;
+}
+
+@property --position3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 150%;
+}
+
+.translate {
+    z-index: 200;
+    background: linear-gradient(180deg,
+            var(--color2) var(--position1),
+            var(--color1) var(--position2),
+            var(--color2) var(--position3));
+    animation: translate 2s linear infinite;
+}
+
+@keyframes translate {
+    50% {
+        --position1: -100%;
+        --position2: -50%;
+        --position3: 0%;
+    }
+}
+
+/* Translate radial gradient */
+
+@property --translate_radial__x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@property --translate_radial__y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+.translate_radial {
+    background: radial-gradient(circle at var(--translate_radial__x) var(--translate_radial__y),
+            var(--color1) 20%,
+            var(--color1) 25%,
+            var(--color2) 40%);
+    z-index: 300;
+    animation: translate_radial 2s linear infinite;
+}
+
+@keyframes translate_radial {
+    25% {
+        --translate_radial__x: 100%;
+        --translate_radial__y: 0%;
+    }
+
+    50% {
+        --translate_radial__x: 100%;
+        --translate_radial__y: 100%;
+    }
+
+    75% {
+        --translate_radial__x: 0%;
+        --translate_radial__y: 100%;
+    }
+}
+
+/* pulse color */
+
+@property --pulse_color__1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: purple;
+}
+
+@property --pulse_color__2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: orange;
+}
+
+.pulse_color {
+    background: radial-gradient(circle,
+            var(--pulse_color__1),
+            var(--pulse_color__2));
+    z-index: 400;
+    animation: pulse_color 2s linear infinite;
+}
+
+@keyframes pulse_color {
+    50% {
+        --pulse_color__1: black;
+        --pulse_color__2: white;
+    }
 }
