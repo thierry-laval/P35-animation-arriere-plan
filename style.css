@@ -1,3 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.rotate {
+    background-color: red;
+}
+
+.translate {
+    background-color: blue;
+}
+
+.translate_radial {
+    background: radial-gradient(circle at center, #ff0000, #0000ff);
+}
+
+.pulse_color {
+    background-color: green;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 :root {
     --color1: orange;
     --color2: purple;
