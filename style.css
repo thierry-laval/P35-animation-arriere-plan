@@ -44,6 +44,14 @@ body {
     }
 }
 
+.box {
+    width: 150px;
+    /* Largeur */
+    height: 150px;
+    /* Hauteur */
+    margin: 10px;
+}
+
 :root {
     --color1: orange;
     --color2: purple;
