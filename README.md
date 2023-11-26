@@ -10,13 +10,13 @@
 
 ***
 
-### 📎 Projet 34 - Création d'une carte animée au survol en html/css
+### 📎 Projet 35 - Création d'une Animation de dégradé d'arrière-plan en html/css
 
-_`Début du projet le 25/11/2023`_
+_`Début du projet le 26/11/2023`_
 
 ***
 
-Créez une expérience utilisateur captivante en utilisant les compétences avancées de CSS pour développer une carte interactive. Explorez les différentes techniques d'animation CSS pour rendre la carte dynamique et engageante.
+Créez une expérience utilisateur captivante en utilisant les compétences avancées de CSS pour développer un arrière plan interactif. Explorez les différentes techniques d'animation CSS pour rendre le fond dynamique et engageant.
 
 #### 📦  &nbsp; Utilisé dans ce projet
 
